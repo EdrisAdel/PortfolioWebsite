@@ -1,0 +1,150 @@
+.hero-about {
+    position: fixed;
+    top: 10%;
+    left: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease, transform 250ms ease;
+}
+
+.hero-about.show {
+    opacity: 1;
+}
+
+.About-Me {
+    pointer-events: auto;
+    user-select: none;
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0;
+    white-space: nowrap;
+    pointer-events: auto;
+    font-size: 40px;
+    color: #ade8f4;
+    font-weight: 600;
+
+}
+
+.About-Me .letter {
+    display: inline-block;
+    will-change: transform, color;
+    transition: color 200ms;
+    color: inherit;
+    cursor: default;
+}
+
+.About-Me .letter:hover {
+    color: transparent;
+}
+
+.about-description {
+    pointer-events: auto;
+    /* user-select: none; */
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    left: 10vw;
+    max-width: 580px;
+    text-align: left;
+    font-size: 12pt;
+}
+
+.about-controls {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    pointer-events: auto;
+}
+
+.btn-group {
+    display: inline-flex;
+    gap: 30px;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease, transform 120ms ease;
+    font-weight: 600;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.09);
+    outline: none;
+}
+
+.btn.active {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+    color: #ade8f4;
+    /* highlight color */
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.about-panel {
+    background: transparent;
+    padding: 8px 0;
+    opacity: 0;
+    margin-top: -20px;
+    transform: translateY(8px);
+    animation: aboutPanelIn 280ms ease forwards;
+    /* keep description area stable while switching */
+    transition: opacity 240ms ease, transform 240ms ease;
+}
+
+/* runs on mount; remounting with a new key restarts the animation */
+@keyframes aboutPanelIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-subtitle {
+    margin: 0 0 6px 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.about-list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.about-list li {
+    margin-bottom: 6px;
+    /* spacing between items */
+}
+
+/* small screens */
+@media (max-width: 600px) {
+    .btn {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+
+    .about-panel {
+        min-height: 90px;
+    }
+}

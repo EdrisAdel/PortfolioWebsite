@@ -1,0 +1,189 @@
+/* container */
+.home {
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.myface-container img {
+    position: fixed;
+    width: 400px;
+    height: 500px;
+    border: 3px solid;
+    border-image: linear-gradient(to top, #ffffff, #3172ff) 1;
+    object-fit: cover;
+    top: 90px;
+    left: 950px;
+    opacity: 0;
+    /* start hidden */
+    transform: translateY(25px);
+    /* start shifted */
+    transition: opacity 500ms ease, transform 250ms ease;
+    z-index: 25;
+    /* ensure it's above background */
+}
+
+.myface-container.show img {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-transition {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 2500ms ease, transform 2500ms ease;
+}
+
+.fade-transition.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    animation: fadeIn 1000ms ease forwards;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+/* reveal content */
+.home-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* small responsive tweak */
+@media (max-width: 600px) {
+    .main-heading {
+        font-size: 40px;
+    }
+}
+
+/* main heading letters */
+.main-heading .letter {
+    display: inline-block;
+    will-change: transform, color;
+    transition: color 200ms;
+    color: inherit;
+    cursor: default;
+}
+
+.main-heading .letter:hover {
+    color: transparent;
+}
+
+.main-heading {
+    pointer-events: auto;
+    user-select: none;
+}
+
+/* hi letters */
+.hi .letter {
+    display: inline-block;
+    will-change: transform, color;
+    transition: color 200ms;
+    color: inherit;
+    cursor: default;
+}
+
+.hi .letter:hover {
+    color: transparent;
+}
+
+.hi {
+    pointer-events: auto;
+    user-select: none;
+}
+
+/* hero stack: fixed left column centered vertically */
+.hero-home {
+    position: fixed;
+    left: 10vw;
+    top: 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* left-align the texts */
+    gap: 8px;
+    z-index: 20;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease, transform 250ms ease;
+}
+
+.hero-home.show {
+    opacity: 1;
+}
+
+.hi,
+.main-heading,
+.Subtitle {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0;
+    white-space: nowrap;
+    /* prevent wrapping */
+    pointer-events: auto;
+    /* allow per-letter hover */
+}
+
+/* spacing and visual tweaks */
+.hi {
+    font-size: 44px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
+.main-heading {
+    font-size: 64px;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    color: #ade8f4;
+
+}
+
+.Subtitle {
+    font-size: 16px;
+    color: #ade8f4;
+    margin-top: 6px;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+    .hero-home {
+        left: 4vw;
+    }
+
+    .main-heading {
+        font-size: 40px;
+    }
+
+    .hi {
+        font-size: 18px;
+    }
+}

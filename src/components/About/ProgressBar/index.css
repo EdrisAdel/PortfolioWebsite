@@ -1,0 +1,129 @@
+/* wrapper / track */
+.progress-bar {
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.09);
+    box-sizing: border-box;
+    margin-bottom: 3px;
+}
+
+/* label row */
+.frame-info,
+.dev-info,
+.language-info {
+    display: flex;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: left;
+    color: #ffffff;
+}
+
+/* fill */
+.progress {
+    height: 13px;
+    border-radius: 6px;
+    width: 0;
+    transition: width 520ms cubic-bezier(.2, .9, .2, 1), background-color 240ms;
+    box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* friendly color palette for each variant */
+.python-progress .progress {
+    background: linear-gradient(90deg, #f6ca2c, #ffdf8f);
+}
+
+/* Python yellow */
+.java-progress .progress {
+    background: linear-gradient(90deg, #FF6D00, #ffa856);
+}
+
+/* Java / orange */
+.csharp-progress .progress {
+    background: linear-gradient(90deg, #68217A, #d771ff);
+}
+
+/* C# purple */
+.web-progress .progress {
+    background: linear-gradient(90deg, #34824a, #6FE28B);
+}
+
+/* Web (HTML/CSS/JS) green */
+.sql-progress .progress {
+    background: linear-gradient(90deg, #126180, #3A9BB5);
+}
+
+/* SQL teal/blue */
+.c-progress .progress {
+    background: linear-gradient(90deg, #34495E, #5B6B7E);
+}
+
+/* C dark slate */
+.react-progress .progress {
+    background: linear-gradient(90deg, #7061fb, #b89eff);
+}
+
+/* React cyan */
+.node-progress .progress {
+    background: linear-gradient(90deg, #50b64d, #7fd67a);
+}
+
+/* Node green */
+.postman-progress .progress {
+    background: linear-gradient(90deg, #FF6C37, #FF9D78);
+}
+
+/* Postman orange */
+.github-progress .progress {
+    background: linear-gradient(90deg, #181717, #3B3B3B);
+}
+
+/* GitHub black/gray */
+.docker-progress .progress {
+    background: linear-gradient(90deg, #2496ED, #68B6FF);
+}
+
+/* Docker blue */
+.postgre-progress .progress {
+    background: linear-gradient(90deg, #336791, #5B8FC2);
+}
+
+.tailwind-progress .progress {
+    background: linear-gradient(90deg, #38B2AC, #81E6D9);
+}
+
+.firebase-progress .progress {
+    background: linear-gradient(90deg, #FFCA28, #FFD95B);
+}
+
+.mongodb-progress .progress {
+    background: linear-gradient(90deg, #47A248, #7BC67E);
+}
+
+.django-progress .progress {
+    background: linear-gradient(90deg, #106c49, #42c074);
+}
+
+.pytorch-progress .progress {
+    background: linear-gradient(90deg, #ce3f23, #f37e53);
+}
+
+.opencv-progress .progress {
+    background: linear-gradient(90deg, #5C3EE8, #8C6FF7);
+}
+
+/* small responsive tweak */
+@media (max-width: 600px) {
+    .progress-bar {
+        padding: 6px;
+    }
+
+    .progress {
+        height: 12px;
+    }
+
+    .progress-bar .language-info-row {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,190 @@
+.contact-page {
+    position: relative;
+    padding: 80px 40px;
+    color: #fff;
+}
+
+.contact-title {
+    pointer-events: auto;
+    user-select: none;
+    position: fixed;
+    top: auto;
+    left: -8vw;
+    transform: none;
+    margin: 0;
+    white-space: nowrap;
+    pointer-events: auto;
+    font-size: 56px;
+    color: #ade8f4;
+    font-weight: 650;
+}
+
+.thankyou {
+    position: fixed;
+    margin: 0 0 24px 0;
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.8;
+    text-align: left;
+    top: 10vw;
+    left: -8vw;
+    max-width: 400px;
+    margin-top: 50px;
+}
+
+.contact-form {
+    max-width: 600px;
+    position: relative;
+    top: 100px;
+    left: 425px;
+    padding: 0;
+}
+
+
+.contact-title .letter {
+    display: inline-block;
+    will-change: transform, color;
+    transition: color 200ms;
+    color: inherit;
+    cursor: default;
+}
+
+.contact-title .letter:hover {
+    color: transparent;
+}
+
+.field-subject,
+.field-message {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-row {
+    display: flex;
+    gap: 10px;
+}
+
+/* each field block */
+.field-name,
+.field-email {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+}
+
+.field-email input,
+.field-subject input,
+.field-message textarea,
+.field-name input {
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    font: inherit;
+    outline: none;
+}
+
+.field-message::placeholder,
+.field input::placeholder,
+.field-message textarea::placeholder,
+.field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.field-message textarea {
+    resize: none;
+    height: 200px;
+}
+
+.field-email input:focus,
+.field-name input:focus,
+.field-subject input:focus,
+.field-message textarea:focus {
+    border-color: #ffffff;
+}
+
+.contact-submit {
+    margin-top: 8px;
+    margin-left: 471px;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #3172ff, #6a9bff);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.contact-submit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-submit:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.contact-status {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.contact-status.success {
+    color: #b5ffb5;
+}
+
+.contact-status.error {
+    color: #ffb5b5;
+}
+
+.mailicon {
+    position: fixed;
+    top: 25vw;
+    left: -8vw;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    transition: color 200ms;
+}
+
+.linkedinicon {
+    position: fixed;
+    top: 25vw;
+    left: -4vw;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
+    transition: color 200ms;
+}
+
+.mailicon:hover,
+.linkedinicon:hover {
+    color: #ade8f4;
+}
+
+/* optional: stack on small screens */
+@media (max-width: 600px) {
+    .field-row {
+        flex-direction: column;
+    }
+}
+
+/* reuse home fade behavior */
+.fade-transition {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1500ms ease, transform 1500ms ease;
+}
+
+.fade-transition.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* contact-hero just groups title + text (keeps your fixed positions) */
+.contact-hero {
+    position: relative;
+}

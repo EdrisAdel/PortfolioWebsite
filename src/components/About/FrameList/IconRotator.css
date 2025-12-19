@@ -1,0 +1,230 @@
+/* container */
+
+.icon-rotator {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    pointer-events: none;
+    color: #fff;
+}
+
+/* main stage: stacked slides */
+.icon-rotator-stage {
+    position: relative;
+    width: var(--main-size);
+    height: var(--main-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+    transition: opacity 420ms ease, transform 420ms cubic-bezier(.2, .9, .2, 1);
+}
+
+.icon-slide.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.icon-slide .icon-svg svg,
+.icon-slide .icon-svg i {
+    width: 86%;
+    height: 86%;
+    color: currentColor;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.32));
+    display: block;
+}
+
+/* thumbs column (visible, muted) */
+.icon-thumbs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.thumb {
+    width: var(--thumb-size);
+    height: var(--thumb-size);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    opacity: 0.45;
+    transform: scale(0.94);
+    transition: opacity 180ms ease, transform 180ms ease, background 180ms;
+}
+
+.thumb .icon-svg svg,
+.thumb .icon-svg i {
+    width: 70%;
+    height: 70%;
+    color: currentColor;
+}
+
+.thumb-active {
+    opacity: 1;
+    transform: scale(1);
+    background: rgba(255, 255, 255, 0.045);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+/* shower container */
+.icon-rotator-shower {
+    display: flex;
+    gap: var(--gap, 12px);
+    align-items: flex-start;
+    pointer-events: none;
+    color: #fff;
+}
+
+/* each column reel */
+.shower-col {
+    width: var(--size);
+    height: calc(var(--size) * 1.6);
+    /* viewport for the column */
+    overflow: hidden;
+    position: relative;
+}
+
+/* the track contains two copies of the icon list for seamless looping */
+.shower-track {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* start half-list above and animate down to 0 */
+    transform: translateY(-50%);
+    animation-name: showerDrop;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+}
+
+/* one cycle moves the duplicated list into view */
+@keyframes showerDrop {
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+/* item sizing */
+.shower-item {
+    width: 100%;
+    height: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.95;
+    transform-origin: center;
+}
+
+/* icon SVG sizing and subtle depth */
+.shower-item .icon-svg svg,
+.shower-item .icon-svg i {
+    width: 68%;
+    height: 68%;
+    color: currentColor;
+    display: block;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.28));
+}
+
+/* visual depth: fade earlier/later items slightly using nth-child */
+.shower-track .shower-item:nth-child(4n + 1) {
+    opacity: 0.98;
+    transform: translateY(0);
+}
+
+.shower-track .shower-item:nth-child(4n + 2) {
+    opacity: 0.92;
+    transform: translateY(2px);
+}
+
+.shower-track .shower-item:nth-child(4n + 3) {
+    opacity: 0.86;
+    transform: translateY(4px);
+}
+
+.shower-track .shower-item:nth-child(4n + 4) {
+    opacity: 0.8;
+    transform: translateY(6px);
+}
+
+/* --- keep this: single-column vertical shower container --- */
+.icon-shower-single {
+    width: 7vw;
+    height: calc(var(--cell-size) * var(--visible) * 3);
+    overflow: hidden;
+    position: fixed;
+    left: 60vw;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    z-index: 40;
+}
+
+/* NEW: dedicated track class for single-column shower */
+.shower-track-single {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    will-change: transform;
+    animation-name: showerDownSingle;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* base duration comes from inline style (e.g. 8s, 12s, etc.) */
+}
+
+@keyframes showerDownSingle {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-51%);
+    }
+}
+
+/* cells stay the same */
+.shower-cell {
+    width: 100%;
+    height: 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shower-cell .icon-svg svg,
+.shower-cell .icon-svg i {
+    width: 7vw;
+    height: 7vw;
+    color: currentColor;
+    display: block;
+    transform-origin: center;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.151));
+}
+
+/* responsive tweaks (keep as-is, but update selector if needed) */
+@media (max-width: 900px) {
+    .icon-shower-single {
+        left: auto;
+        right: 3vw;
+        width: 16vw;
+        height: calc(var(--cell-size) * 3);
+    }
+}

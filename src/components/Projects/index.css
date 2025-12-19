@@ -1,0 +1,135 @@
+.hero-projects {
+    position: fixed;
+    top: 10%;
+    left: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 500ms ease, transform 250ms ease;
+}
+
+.hero-projects.show {
+    opacity: 1;
+    /* transform: translateY(0); */
+}
+
+.projects-title {
+    pointer-events: auto;
+    user-select: none;
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0;
+    white-space: nowrap;
+    pointer-events: auto;
+    font-size: 56px;
+    color: #ade8f4;
+    font-weight: 650;
+}
+
+/* title letters vanish on hover */
+.projects-title .letter {
+    display: inline-block;
+    will-change: transform, color;
+    transition: color 200ms;
+    color: inherit;
+    cursor: default;
+}
+
+.projects-title .letter:hover {
+    color: transparent;
+}
+
+.projects-description {
+    pointer-events: auto;
+    /* user-select: none; */
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    left: 10vw;
+    max-width: 450px;
+    text-align: left;
+}
+
+/* resume + overlay container */
+.projects-resume-wrapper {
+    position: absolute;
+    display: inline-block;
+    left: 50vw;
+}
+
+/* resume image */
+.projects-resume-frame {
+    width: 425px;
+    height: 550px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: block;
+}
+
+/* hover overlay */
+.projects-resume-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+}
+
+/* show overlay on hover */
+.projects-resume-wrapper:hover .projects-resume-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* button + GitHub line */
+.projects-download-btn {
+    border: none;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #3172ff, #6a9bff);
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+.projects-github-line {
+    font-size: 14px;
+}
+
+.projects-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #ade8f4;
+    text-decoration: none;
+}
+
+.projects-github-link:hover {
+    text-decoration: underline;
+}
+
+/* simple placeholder icon; you can swap to react-icons later */
+.giticon {
+    position: absolute;
+    top: 30vw;
+    left: 10vw;
+    font-size: 50px;
+    color: #ffffff;
+    cursor: pointer;
+    /* smooth color change on hover and when leaving */
+    transition: color 200ms ease;
+}
+
+.giticon:hover {
+    color: #000000;
+}
