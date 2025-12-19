@@ -54,7 +54,7 @@ const Contact = () => {
                     Accept: 'application/json',
                 },
                 body: JSON.stringify({
-                    access_key: 'edd8eab8-952a-4d83-9a6a-75bbadb9bdfe',
+                    access_key: process.env.REACT_APP_WEB3FORMS_KEY,
                     ...formData,
                 }),
             });
