@@ -62,11 +62,11 @@ const Projects = () => {
                     download
                     id="hidden-resume-download"
                     style={{ display: "none" }}
-                />
+                /><a className="giticon" target="_blank" rel="noreferrer" href="https://github.com/EdrisAdel">
+                    <FontAwesomeIcon icon={faGithub} />
+                </a>
             </div>
-            <a className="giticon" target="_blank" rel="noreferrer" href="https://github.com/EdrisAdel">
-                <FontAwesomeIcon icon={faGithub} />
-            </a>
+
         </div >
     );
 };

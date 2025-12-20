@@ -121,8 +121,7 @@
 /* simple placeholder icon; you can swap to react-icons later */
 .giticon {
     position: absolute;
-    top: 30vw;
-    left: 10vw;
+    top: 25vw;
     font-size: 50px;
     color: #ffffff;
     cursor: pointer;
