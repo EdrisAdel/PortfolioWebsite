@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProgressBar from "../ProgressBar";
 import "./index.css";
-import IconRotator from "../FrameList/IconRotator";
+import IconRotator from "../IconRotator";
 
 // icons (adjust as needed)
 import { SiDocker, SiGithub, SiPostman, SiPytorch, SiOpencv } from "react-icons/si";
@@ -27,7 +27,7 @@ const TechList = () => {
             </ul>
 
             <aside className="frame-right">
-                <IconRotator techs={devs} size={96} speed={8} visible={4} />
+                <IconRotator techs={devs} interval={2800} size={88} />
             </aside>
         </div>
     );

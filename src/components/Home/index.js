@@ -34,7 +34,7 @@ const Home = () => {
                     <h1 className="hi">{wrapLetters('Hi,')}</h1>
                     <h1 className={`main-heading ${moved ? 'move-left' : ''}`}>{wrapLetters("I'm Edris")}</h1>
                     <p className="Subtitle">Computer Science + Minor in Fin. Math Wilfrid Laurier University 2027</p>
-                    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Segoe+UI&size=32&duration=3000&pause=750&color=FFFFFF&width=625&height=60&lines=%3E+Software+Engineer;%3E+Co-Founder+of+Dribbl;%3E+Learning+about+AWS%2C+PostgreSQL;%3E+Interested+in+AI%2C+ML%2C+and+Data+Science" alt="Typing SVG" /></a>
+                    <a href="https://git.io/typing-svg"><img className="typing-svg" src="https://readme-typing-svg.demolab.com?font=Segoe+UI&size=32&duration=3000&pause=750&color=FFFFFF&width=625&height=60&lines=%3E+Software+Engineer;%3E+Co-Founder+of+Dribbl;%3E+Learning+about+AWS%2C+PostgreSQL;%3E+Interested+in+AI%2C+ML%2C+and+Data+Science" alt="Typing SVG" /></a>
                 </div>
                 <div className={`myface-container ${showMain ? 'show' : ''}`}>
                     <img src={require('../../images/myface.jpeg')} alt="Edris Adel" />

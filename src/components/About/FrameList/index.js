@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProgressBar from "../ProgressBar";
 import "./index.css";
-import IconRotator from "./IconRotator";
+import IconRotator from "../IconRotator";
 
 // icons
 import { SiNodedotjs, SiTailwindcss, SiMongodb, SiFirebase, SiDjango, SiReact } from "react-icons/si";

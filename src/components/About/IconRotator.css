@@ -133,8 +133,8 @@
 /* icon SVG sizing and subtle depth */
 .shower-item .icon-svg svg,
 .shower-item .icon-svg i {
-    width: 68%;
-    height: 68%;
+    width: 69%;
+    height: 69%;
     color: currentColor;
     display: block;
     filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.28));
@@ -163,11 +163,11 @@
 
 /* --- keep this: single-column vertical shower container --- */
 .icon-shower-single {
-    width: 7vw;
+    width: var(--cell-size);
     height: calc(var(--cell-size) * var(--visible) * 3);
     overflow: hidden;
     position: fixed;
-    left: 60vw;
+    left: 55vw;
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
@@ -203,7 +203,7 @@
 /* cells stay the same */
 .shower-cell {
     width: 100%;
-    height: 8vw;
+    height: var(--cell-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -211,8 +211,8 @@
 
 .shower-cell .icon-svg svg,
 .shower-cell .icon-svg i {
-    width: 7vw;
-    height: 7vw;
+    width: calc(var(--cell-size) * 0.9);
+    height: calc(var(--cell-size) * 0.9);
     color: currentColor;
     display: block;
     transform-origin: center;
@@ -223,8 +223,49 @@
 @media (max-width: 900px) {
     .icon-shower-single {
         left: auto;
-        right: 3vw;
-        width: 16vw;
+        width: 20vw;
         height: calc(var(--cell-size) * 3);
+    }
+}
+
+/* mobile: switch to horizontal left-to-right marquee  ---------------------------------------------------------------------*/
+@media (max-width: 600px) {
+
+    .icon-shower-single {
+        right: 7vw;
+        position: relative;
+        width: 100vw;
+        height: calc(var(--cell-size) * 1.6);
+        margin-top: 12px;
+        transform: none;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .shower-track-single {
+        flex-direction: row;
+        gap: 40px;
+        animation-name: showerAcross;
+    }
+
+    @keyframes showerAcross {
+        from {
+            transform: translateX(-51%);
+        }
+
+        to {
+            transform: translateX(0%);
+        }
+    }
+
+    .shower-cell {
+        width: calc(var(--cell-size) * 1.33);
+        height: calc(var(--cell-size) * 1.33);
+    }
+
+    .shower-cell .icon-svg svg,
+    .shower-cell .icon-svg i {
+        width: 200%;
+        height: 200%;
     }
 }

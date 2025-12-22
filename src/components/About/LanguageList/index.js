@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProgressBar from "../ProgressBar";
-import IconRotator from "../FrameList/IconRotator";
+import IconRotator from "../IconRotator";
 import "./index.css"
 import { FaJava, FaUnity } from "react-icons/fa";
 import { SiPython, SiHtml5, SiMysql, SiC } from "react-icons/si";
@@ -27,7 +27,7 @@ const LanguageList = () => {
             </ul>
 
             <aside className="frame-right">
-                <IconRotator techs={languages} size={96} speed={8} visible={4} />
+                <IconRotator techs={languages} interval={2800} size={88} />
             </aside>
         </div>
     );

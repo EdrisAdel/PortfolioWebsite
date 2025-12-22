@@ -2,14 +2,16 @@
     width: 100%;
     min-height: 100vh;
     position: relative;
-    padding-left: 240px;
-    /* space for fixed sidenav */
-    transition: padding-left 300ms ease;
+    padding-left: 96px;
+    /* space for fixed left sidenav on desktop */
+    transition: padding-left 300ms ease, padding-top 300ms ease;
+    overflow-x: hidden;
 }
 
 /* on small screens remove left padding (sidenav overlays content when open) */
 @media (max-width: 800px) {
     .page {
         padding-left: 0;
+        padding-top: 64px;
     }
 }

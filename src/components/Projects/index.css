@@ -132,3 +132,45 @@
 .giticon:hover {
     color: #000000;
 }
+
+/* responsive: stack resume nicely on mobile using vw units */
+@media (max-width: 800px) {
+    .projects-description {
+        font-size: 18px;
+        max-width: 80vw;
+    }
+
+    .projects-resume-wrapper {
+        position: flex;
+        display: block;
+        margin-top: 24px;
+        align-self: center;
+        left: 35%;
+        top: 100vw;
+    }
+
+    .projects-resume-frame {
+        width: 50vw;
+        height: auto;
+    }
+
+    .projects-resume-overlay {
+        inset: auto;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50vw;
+        height: 65vw;
+    }
+
+    .projects-download-btn {
+        font-size: 12px;
+    }
+
+    .giticon {
+        position: relative;
+        margin-top: 16px;
+        font-size: 56px;
+        align-self: flex-start;
+    }
+}

@@ -1,6 +1,7 @@
 /* wrapper / track */
 .progress-bar {
     width: 100%;
+    max-width: 100%;
     border-radius: 8px;
     padding: 8px;
     background: rgba(255, 255, 255, 0.09);
@@ -117,13 +118,13 @@
 @media (max-width: 600px) {
     .progress-bar {
         padding: 6px;
+        width: 90vw;
+        max-width: 100vw;
+        margin-left: 0;
+        margin-right: auto;
     }
 
     .progress {
         height: 12px;
-    }
-
-    .progress-bar .language-info-row {
-        font-size: 13px;
     }
 }

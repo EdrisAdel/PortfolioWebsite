@@ -50,7 +50,6 @@
     font-size: 18px;
     color: rgb(255, 255, 255);
     margin-top: 10px;
-    left: 10vw;
     max-width: 580px;
     text-align: left;
     font-size: 12pt;
@@ -137,14 +136,42 @@
     /* spacing between items */
 }
 
-/* small screens */
-@media (max-width: 600px) {
+/* small/medium screens */
+@media (max-width: 800px) {
+    .hero-about {
+        position: static;
+        top: auto;
+        left: auto;
+        align-items: flex-start;
+        padding: 72px 6vw 32px;
+    }
+
+    .About-Me {
+        white-space: normal;
+        font-size: 32px;
+    }
+
+    .about-description {
+        max-width: 100vw;
+    }
+}
+
+/* extra-small screens */
+@media (max-width: 500px) {
     .btn {
-        padding: 6px 10px;
+        padding: 8px 8px;
+        font-size: 12px;
+    }
+
+    .about-description {
         font-size: 14px;
     }
 
     .about-panel {
-        min-height: 90px;
+        min-height: 190px;
+    }
+
+    .about-list {
+        font-size: 20px;
     }
 }

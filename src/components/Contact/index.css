@@ -1,6 +1,6 @@
 .contact-page {
     position: relative;
-    padding: 80px 40px;
+    padding: 80px 120px;
     color: #fff;
 }
 
@@ -163,6 +163,50 @@
 .mailicon:hover,
 .linkedinicon:hover {
     color: #ade8f4;
+}
+
+/* mobile: reflow into a single column and use vw-based sizing */
+@media (max-width: 800px) {
+    .contact-page {
+        padding: 22px 6vw 42px;
+    }
+
+    .contact-title {
+        position: static;
+        left: auto;
+        top: auto;
+        font-size: 40px;
+        white-space: normal;
+    }
+
+    .thankyou {
+        position: static;
+        top: auto;
+        left: auto;
+        max-width: 88vw;
+        margin-top: 12px;
+        font-size: 16px;
+    }
+
+    .contact-form {
+        position: static;
+        top: auto;
+        left: auto;
+        margin-top: 10px;
+        width: 88vw;
+        max-width: 88vw;
+    }
+
+    .contact-submit {
+        margin-left: 0;
+    }
+
+    .mailicon,
+    .linkedinicon {
+        position: static;
+        font-size: 30px;
+        margin-right: 20px;
+    }
 }
 
 /* optional: stack on small screens */

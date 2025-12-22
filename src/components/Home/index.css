@@ -3,23 +3,31 @@
     position: relative;
     min-height: 100vh;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10vw;
+    right: 5vw;
+}
+
+.myface-container {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: right;
 }
 
 .myface-container img {
-    position: fixed;
-    width: 400px;
-    height: 500px;
+    width: min(360px, 60vw);
+    height: auto;
     border: 3px solid;
     border-image: linear-gradient(to top, #ffffff, #3172ff) 1;
     object-fit: cover;
-    top: 90px;
-    left: 950px;
     opacity: 0;
     /* start hidden */
     transform: translateY(25px);
     /* start shifted */
     transition: opacity 500ms ease, transform 250ms ease;
-    z-index: 25;
+    z-index: 20;
     /* ensure it's above background */
 }
 
@@ -119,14 +127,11 @@
 
 /* hero stack: fixed left column centered vertically */
 .hero-home {
-    position: fixed;
-    left: 10vw;
-    top: 38%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     /* left-align the texts */
-    gap: 8px;
+    gap: 10px;
     z-index: 20;
     pointer-events: none;
     opacity: 0;
@@ -140,7 +145,7 @@
 .hi,
 .main-heading,
 .Subtitle {
-    position: static;
+    position: relative;
     left: auto;
     top: auto;
     transform: none;
@@ -173,10 +178,42 @@
     margin-top: 6px;
 }
 
+.typing-svg {
+    max-width: 100%;
+    height: auto;
+    margin-top: 12px;
+}
+
 /* responsive */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+    .home {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 72px 6vw 32px;
+        gap: 32px;
+        right: 0vw;
+    }
+
     .hero-home {
-        left: 4vw;
+        align-items: center;
+    }
+
+    .hi,
+    .main-heading,
+    .Subtitle {
+        white-space: normal;
+    }
+
+    .myface-container img {
+        width: min(300px, 70vw);
+    }
+}
+
+@media (max-width: 600px) {
+    .home {
+        padding: 10vw 5vw 35vw;
     }
 
     .main-heading {
@@ -184,6 +221,10 @@
     }
 
     .hi {
-        font-size: 18px;
+        font-size: 24px;
+    }
+
+    .Subtitle {
+        font-size: 14px;
     }
 }
