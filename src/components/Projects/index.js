@@ -43,7 +43,7 @@ const Projects = () => {
                 </div>
                 <div className="projects-resume-wrapper">
                     <img
-                        src="/Resume.jpg"
+                        src="/EdrisCS_Resume.png"
                         alt="Edris Adel Resume"
                         className="projects-resume-frame"
                     />

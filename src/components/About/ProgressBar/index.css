@@ -114,6 +114,14 @@
     background: linear-gradient(90deg, #5C3EE8, #8C6FF7);
 }
 
+.aws-progress .progress {
+    background: linear-gradient(90deg, #FF9900, #FFBB33);
+}
+
+.azure-progress .progress {
+    background: linear-gradient(90deg, #007FFF, #3a82ca);
+}
+
 /* small responsive tweak */
 @media (max-width: 600px) {
     .progress-bar {
