@@ -30,94 +30,95 @@
     box-shadow: inset 0 -2px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* friendly color palette for each variant */
+/* friendly color palette for each variant 
+python*/
 .python-progress .progress {
-    background: linear-gradient(90deg, #f6ca2c, #ffdf8f);
+    background: linear-gradient(90deg, #f4d66a, #fed160);
 }
 
-/* Python yellow */
+/* java  */
 .java-progress .progress {
-    background: linear-gradient(90deg, #FF6D00, #ffa856);
+    background: linear-gradient(90deg, #ffa856,#FF6D00);
 }
 
-/* Java / orange */
+/* csharp */
 .csharp-progress .progress {
     background: linear-gradient(90deg, #68217A, #d771ff);
 }
 
-/* C# purple */
+/* web green */
 .web-progress .progress {
     background: linear-gradient(90deg, #34824a, #6FE28B);
 }
 
-/* Web (HTML/CSS/JS) green */
+/*sql*/
 .sql-progress .progress {
-    background: linear-gradient(90deg, #126180, #3A9BB5);
+    background: linear-gradient(90deg,  #3A9BB5,#126180);
 }
 
-/* SQL teal/blue */
+/* c  */
 .c-progress .progress {
     background: linear-gradient(90deg, #34495E, #5B6B7E);
 }
 
-/* C dark slate */
+/* React cyan */
 .react-progress .progress {
-    background: linear-gradient(90deg, #7061fb, #b89eff);
+    background: linear-gradient(90deg, #897df7, #7543ff);
 }
 
-/* React cyan */
+/* Node green */
 .node-progress .progress {
     background: linear-gradient(90deg, #50b64d, #7fd67a);
 }
 
-/* Node green */
+/* Postman orange */
 .postman-progress .progress {
     background: linear-gradient(90deg, #FF6C37, #FF9D78);
 }
 
-/* Postman orange */
+
+/* GitHub black/gray */
 .github-progress .progress {
     background: linear-gradient(90deg, #181717, #3B3B3B);
 }
-
-/* GitHub black/gray */
+/* Docker blue */
 .docker-progress .progress {
     background: linear-gradient(90deg, #2496ED, #68B6FF);
 }
 
-/* Docker blue */
+/* postgre */
 .postgre-progress .progress {
     background: linear-gradient(90deg, #336791, #5B8FC2);
 }
-
+/* tailwind */
 .tailwind-progress .progress {
     background: linear-gradient(90deg, #38B2AC, #81E6D9);
 }
-
+/* firebase */
 .firebase-progress .progress {
     background: linear-gradient(90deg, #FFCA28, #FFD95B);
 }
-
+/* mongodb */
 .mongodb-progress .progress {
     background: linear-gradient(90deg, #47A248, #7BC67E);
 }
-
+/* django */
 .django-progress .progress {
     background: linear-gradient(90deg, #106c49, #42c074);
 }
-
+/* pytorch */
 .pytorch-progress .progress {
     background: linear-gradient(90deg, #ce3f23, #f37e53);
 }
-
+/* opencv */
 .opencv-progress .progress {
     background: linear-gradient(90deg, #5C3EE8, #8C6FF7);
 }
-
+/* aws */
 .aws-progress .progress {
     background: linear-gradient(90deg, #FF9900, #FFBB33);
 }
-
+/* azure */
 .azure-progress .progress {
     background: linear-gradient(90deg, #007FFF, #3a82ca);
 }

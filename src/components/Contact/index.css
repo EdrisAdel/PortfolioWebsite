@@ -1,6 +1,6 @@
 .contact-page {
     position: relative;
-    padding: 80px 120px;
+    padding: 80px 160px;
     color: #fff;
 }
 
@@ -219,8 +219,8 @@
 /* reuse home fade behavior */
 .fade-transition {
     opacity: 0;
-    transform: translateY(25px);
-    transition: opacity 1500ms ease, transform 1500ms ease;
+    transform: translateY(0px);
+    transition: opacity 500ms ease, transform 500ms ease;
 }
 
 .fade-transition.show {

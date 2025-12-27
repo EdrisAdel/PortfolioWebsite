@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const wrapLetters = (text) =>
@@ -49,8 +50,13 @@ const Projects = () => {
                     />
 
                     <div className="projects-resume-overlay">
-                        <button className="projects-download-btn" onClick={handleDownload}>
-                            Download Resume (PDF)
+                        <button
+                            className="projects-download-btn"
+                            onClick={handleDownload}
+                            aria-label="Download Resume (PDF)"
+                            title="Download Resume (PDF)"
+                        >
+                            <FontAwesomeIcon icon={faDownload} />
                         </button>
 
                     </div>
