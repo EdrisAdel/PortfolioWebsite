@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.css';
+import myface360 from '../../images/myface_360.webp';
+import myface720 from '../../images/myface_720.webp';
 
 const Home = () => {
     const [moved, setMoved] = useState(false);
@@ -21,7 +23,7 @@ const Home = () => {
 
     const wrapLetters = (text) =>
         text.split('').map((ch, i) => (
-            <span key={i} className="letter" style={{ ['--i']: i }}>
+            <span key={i} className="letter" style={{ '--i': i }}>
                 {ch === ' ' ? '\u00A0' : ch}
             </span>
         ));
@@ -37,7 +39,18 @@ const Home = () => {
                     <a href="https://git.io/typing-svg"><img className="typing-svg" src="https://readme-typing-svg.demolab.com?font=Segoe+UI&size=32&duration=3000&pause=750&color=FFFFFF&width=625&height=60&lines=%3E+Software+Engineer;%3E+Co-Founder+of+Dribbl;%3E+Learning+about+AWS%2C+PostgreSQL;%3E+Interested+in+AI%2C+ML%2C+and+Data+Science" alt="Typing SVG" /></a>
                 </div>
                 <div className={`myface-container ${showMain ? 'show' : ''}`}>
-                    <img src={require('../../images/myface.jpeg')} alt="Edris Adel" />
+                    <img
+                        src={myface360}
+                        srcSet={`
+                          ${myface360} 360w,
+                          ${myface720} 720w
+                        `}
+                        sizes="(max-width: 600px) 60vw,
+                               (max-width: 1024px) 30vw,
+                               360px"
+                        alt="Edris Adel"
+                        loading="lazy"
+                    />
                 </div >
                 {/* slideshow
                 <div className="slideshow-container">
