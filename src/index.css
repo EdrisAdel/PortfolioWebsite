@@ -18,7 +18,8 @@ body,
 }
 
 html {
-  background: #3172ff;
+  background: linear-gradient(to top, #8396e2, #3172ff);
+  background-attachment: fixed;
   overscroll-behavior: none;
 }
 
