@@ -11,6 +11,27 @@ const wrapLetters = (text) =>
         </span>
     ));
 
+const projects = [
+    {
+        title: "StockAI",
+        description:
+            "A machine learning application that analyzes stock market trends and delivers AI-driven insights and price predictions.",
+        href: "https://github.com/EdrisAdel/StockAI",
+    },
+    {
+        title: "Football Match Analytics System",
+        description:
+            "A data-driven system that processes and visualizes football match statistics for in-depth performance analysis.",
+        href: "https://github.com/EdrisAdel/FootballVisionAnalysis",
+    },
+    {
+        title: "Bundesliga Table Predictor",
+        description:
+            "A predictive model that forecasts Bundesliga standings using historical match data and statistical modelling.",
+        href: "https://github.com/EdrisAdel/BundesligaMatchPredictor",
+    },
+];
+
 const Projects = () => {
     const [showMain, setShowMain] = useState(false);
 
@@ -37,43 +58,82 @@ const Projects = () => {
     return (
         <div className="projects-page">
             <div className={`hero-projects ${showMain ? "show" : ""}`}>
-                <h1 className="projects-title">{wrapLetters("Portfolio")}</h1>
-                <div className="projects-description">
-                    Feel free to download and look at my resume! <br /><br />If you are interested in what I've been building, please visit my Github below!
-                    I'm always building something new and updating my projects regularly. Thank you for your interest!
+
+                {/* ── left column ── */}
+                <div className="proj-left">
+                    <h1 className="projects-title">{wrapLetters("Portfolio")}</h1>
+                    <p className="proj-tagline">Here's what I've been working on.</p>
+
+                    <div className="projects-cards-row">
+                        {projects.map((project, i) => (
+                            <a
+                                key={i}
+                                className="project-card"
+                                href={project.href}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <h3 className="project-card-title">{project.title}</h3>
+                                <p className="project-card-desc">{project.description}</p>
+                            </a>
+                        ))}
+                    </div>
+
+                    <a
+                        className="proj-github-btn"
+                        href="https://github.com/EdrisAdel"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <FontAwesomeIcon icon={faGithub} />
+                        View on GitHub
+                    </a>
+
+                    {/* mobile-only download button */}
+                    <button
+                        className="proj-mobile-download-btn"
+                        onClick={handleDownload}
+                        aria-label="Download Resume (PDF)"
+                    >
+                        <FontAwesomeIcon icon={faDownload} />
+                        Download
+                    </button>
                 </div>
-                <div className="projects-resume-wrapper">
-                    <img
-                        src="/EdrisCS_Resume.png"
-                        alt="Edris Adel Resume"
-                        className="projects-resume-frame"
-                    />
 
-                    <div className="projects-resume-overlay">
-                        <button
-                            className="projects-download-btn"
-                            onClick={handleDownload}
-                            aria-label="Download Resume (PDF)"
-                            title="Download Resume (PDF)"
-                        >
-                            <FontAwesomeIcon icon={faDownload} />
-                        </button>
-
+                {/* ── right column — resume ── */}
+                <div className="proj-right">
+                    <span className="proj-resume-label">Resume</span>
+                    <div className="projects-resume-wrapper">
+                        <img
+                            src="/EdrisCS_Resume.webp"
+                            alt="Edris Adel Resume"
+                            className="projects-resume-frame"
+                        />
+                        <div className="projects-resume-overlay">
+                            <button
+                                className="projects-download-btn"
+                                onClick={handleDownload}
+                                aria-label="Download Resume (PDF)"
+                            >
+                                <FontAwesomeIcon icon={faDownload} />
+                                <span>Download</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                {/* hidden actual download link (used by the button) */}
-                <a
-                    href="/EdrisCS_Resume.pdf"
-                    download
-                    id="hidden-resume-download"
-                    style={{ display: "none" }}
-                /><a className="giticon" target="_blank" rel="noreferrer" href="https://github.com/EdrisAdel">
-                    <FontAwesomeIcon icon={faGithub} />
-                </a>
             </div>
 
-        </div >
+            {/* hidden download anchor */}
+            <a
+                href="/EdrisCS_Resume.pdf"
+                download
+                id="hidden-resume-download"
+                style={{ display: "none" }}
+            >
+                Download resume
+            </a>
+        </div>
     );
 };
 

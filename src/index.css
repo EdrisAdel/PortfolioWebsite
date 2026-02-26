@@ -10,9 +10,27 @@ body {
   background: linear-gradient(to top, #8396e2, #3172ff);
 }
 
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  background: #3172ff;
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(to top, #8396e2, #3172ff);
+}
+
 body {
   overflow: hidden;
   overscroll-behavior: none;
+  background: transparent;
 }
 
 html::-webkit-scrollbar,

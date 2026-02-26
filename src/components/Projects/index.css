@@ -1,42 +1,45 @@
+/* ═══════════════════════════════════════
+   Projects page
+═══════════════════════════════════════ */
+
 .hero-projects {
     position: fixed;
     top: 10%;
     left: 10vw;
+    width: 80vw;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    gap: 8px;
+    gap: 60px;
     z-index: 20;
     opacity: 0;
-    transition: opacity 500ms ease, transform 250ms ease;
+    transition: opacity 500ms ease;
 }
 
 .hero-projects.show {
     opacity: 1;
-    /* transform: translateY(0); */
+}
+
+/* ── Left column ───────────────────── */
+.proj-left {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .projects-title {
-    pointer-events: auto;
     user-select: none;
-    position: static;
-    left: auto;
-    top: auto;
-    transform: none;
     margin: 0;
     white-space: nowrap;
-    pointer-events: auto;
     font-size: 56px;
     color: #ade8f4;
     font-weight: 650;
 }
 
-/* title letters vanish on hover */
 .projects-title .letter {
     display: inline-block;
-    will-change: transform, color;
     transition: color 200ms;
-    color: inherit;
     cursor: default;
 }
 
@@ -44,29 +47,108 @@
     color: transparent;
 }
 
-.projects-description {
-    pointer-events: auto;
-    /* user-select: none; */
-    font-size: 18px;
-    color: rgb(255, 255, 255);
-    margin-top: 50px;
-    left: 10vw;
-    max-width: 450px;
-    text-align: left;
+.proj-tagline {
+    margin: 10px 0 28px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.03em;
+}
+
+/* ── Project cards ─────────────────── */
+.projects-cards-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-card {
+    background: rgba(173, 232, 244, 0.13);
+    border: 2px solid rgba(173, 232, 244, 0.35);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 170ms ease, border-color 170ms ease, transform 150ms ease;
+}
+
+.project-card:hover {
+    background: rgba(173, 232, 244, 0.21);
+    border-color: rgba(173, 232, 244, 0.6);
+    transform: translateX(5px);
+}
+
+.project-card-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ade8f4;
+    line-height: 1.3;
+}
+
+.project-card-desc {
+    margin: 0;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.6;
+}
+
+/* ── GitHub button ─────────────────── */
+.proj-github-btn {
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    width: fit-content;
+    transition: background 160ms ease, border-color 160ms ease, transform 140ms ease;
+}
+
+.proj-github-btn:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
+}
+
+/* ── Right column — resume ─────────── */
+.proj-right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.proj-resume-label {
+    margin: 0;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
 }
 
 /* resume + overlay container */
 .projects-resume-wrapper {
-    position: absolute;
+    position: relative;
     display: inline-block;
-    left: 50vw;
 }
 
 /* resume image */
 .projects-resume-frame {
-    width: 425px;
-    height: 550px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 360px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     display: block;
 }
 
@@ -74,9 +156,9 @@
 .projects-resume-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.58);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -84,93 +166,76 @@
     transition: opacity 200ms ease;
 }
 
-/* show overlay on hover */
 .projects-resume-wrapper:hover .projects-resume-overlay {
     opacity: 1;
     pointer-events: auto;
 }
 
-/* button + GitHub line */
+/* download button */
 .projects-download-btn {
-    border: none;
-    border-radius: 999px;
-    padding: 10px 22px;
-    font-weight: 600;
-    background: linear-gradient(90deg, #3172ff, #6a9bff);
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 12px;
-}
-
-.projects-github-line {
-    font-size: 14px;
-}
-
-.projects-github-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    color: #ade8f4;
-    text-decoration: none;
-}
-
-.projects-github-link:hover {
-    text-decoration: underline;
-}
-
-/* simple placeholder icon; you can swap to react-icons later */
-.giticon {
-    position: absolute;
-    top: 25vw;
-    font-size: 50px;
-    color: #ffffff;
+    gap: 9px;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #3172ff;
+    color: #fff;
     cursor: pointer;
-    /* smooth color change on hover and when leaving */
-    transition: color 200ms ease;
+    transition: background 160ms ease, transform 140ms ease;
 }
 
-.giticon:hover {
-    color: #000000;
+.projects-download-btn:hover {
+    background: #4a85ff;
+    transform: scale(1.04);
 }
 
-/* responsive: stack resume nicely on mobile using vw units */
-@media (max-width: 800px) {
-    .projects-description {
-        font-size: 18px;
-        max-width: 80vw;
+/* mobile download button — hidden on desktop */
+.proj-mobile-download-btn {
+    display: none;
+}
+
+/* ── Responsive ────────────────────── */
+@media (max-width: 900px) {
+    .hero-projects {
+        flex-direction: column;
+        gap: 40px;
+        width: 80vw;
     }
 
-    .projects-resume-wrapper {
-        position: flex;
-        display: block;
-        margin-top: 24px;
-        align-self: center;
-        left: 35%;
-        top: 100vw;
+    .projects-title {
+        font-size: 42px;
     }
 
-    .projects-resume-frame {
-        width: 50vw;
-        height: auto;
+    /* hide the entire resume preview on mobile */
+    .proj-right {
+        display: none;
     }
-
-    .projects-resume-overlay {
-        inset: auto;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 50vw;
-        height: 65vw;
+    .proj-github-btn {
+        max-width: 50%;
     }
-
-    .projects-download-btn {
-        font-size: 12px;
-    }
-
-    .giticon {
-        position: relative;
+    /* show the standalone download button instead */
+    .proj-mobile-download-btn {
         margin-top: 16px;
-        font-size: 56px;
-        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 11px 22px;
+        border-radius: 10px;
+        border: none;
+        background: #3172ff;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 160ms ease, transform 140ms ease;
+        max-width: 52%;
+    }
+
+    .proj-mobile-download-btn:hover {
+        background: #4a85ff;
+        transform: translateY(-2px);
     }
 }
