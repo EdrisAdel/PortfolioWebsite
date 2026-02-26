@@ -4,7 +4,7 @@ import "./index.css";
 import IconRotator from "../IconRotator";
 
 // icons (adjust as needed)
-import { SiDocker, SiGithub, SiPostman, SiPytorch, SiOpencv, SiAmazon } from "react-icons/si";
+import { SiDocker, SiPostman, SiPytorch, SiOpencv } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 import { FaAws } from "react-icons/fa";
 

@@ -14,7 +14,6 @@ const Contact = () => {
     const [status, setStatus] = useState({ type: '', message: '' });
     const [submitting, setSubmitting] = useState(false);
     const [showMain, setShowMain] = useState(false); // NEW
-    const [moved, setMoved] = useState(false);
 
 
     const handleChange = (e) => {
@@ -24,7 +23,7 @@ const Contact = () => {
 
     const wrapLetters = (text) =>
         text.split('').map((ch, i) => (
-            <span key={i} className="letter" style={{ ['--i']: i }}>
+            <span key={i} className="letter" style={{ '--i': i }}>
                 {ch === ' ' ? '\u00A0' : ch}
             </span>
         ));
@@ -33,10 +32,8 @@ const Contact = () => {
         const startDelay = 0;
         const moveDuration = 300;
         const revealDelay = 60;
-        const tStart = setTimeout(() => setMoved(true), startDelay);
         const tReveal = setTimeout(() => setShowMain(true), startDelay + moveDuration + revealDelay);
         return () => {
-            clearTimeout(tStart);
             clearTimeout(tReveal);
         };
     }, []);

@@ -5,14 +5,13 @@ import DevList from '../About/DevList';
 import './index.css';
 
 const About = () => {
-    const [moved, setMoved] = useState(false);
     const [showMain, setShowMain] = useState(false);
     const [active, setActive] = useState('languages');
     const [panelKey, setPanelKey] = useState(0);
 
     const wrapLetters = (text) =>
         text.split('').map((ch, i) => (
-            <span key={i} className="letter" style={{ ['--i']: i }}>
+            <span key={i} className="letter" style={{ '--i': i }}>
                 {ch === ' ' ? '\u00A0' : ch}
             </span>
         ));
@@ -21,10 +20,8 @@ const About = () => {
         const startDelay = 0;
         const moveDuration = 300;
         const revealDelay = 60;
-        const tStart = setTimeout(() => setMoved(true), startDelay);
         const tReveal = setTimeout(() => setShowMain(true), startDelay + moveDuration + revealDelay);
         return () => {
-            clearTimeout(tStart);
             clearTimeout(tReveal);
         };
     }, []);
