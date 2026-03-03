@@ -86,7 +86,7 @@ const Projects = () => {
                         rel="noreferrer"
                     >
                         <FontAwesomeIcon icon={faGithub} />
-                        View on GitHub
+                        View GitHub
                     </a>
 
                     {/* mobile-only download button */}
@@ -96,7 +96,7 @@ const Projects = () => {
                         aria-label="Download Resume (PDF)"
                     >
                         <FontAwesomeIcon icon={faDownload} />
-                        Download
+                        Download Resume
                     </button>
                 </div>
 
@@ -116,7 +116,7 @@ const Projects = () => {
                                 aria-label="Download Resume (PDF)"
                             >
                                 <FontAwesomeIcon icon={faDownload} />
-                                <span>Download</span>
+                                <span>Download Resume</span>
                             </button>
                         </div>
                     </div>

@@ -50,7 +50,7 @@
 .proj-tagline {
     margin: 10px 0 28px;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.695);
     letter-spacing: 0.03em;
 }
 
@@ -91,7 +91,7 @@
 .project-card-desc {
     margin: 0;
     font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.72);
+    color: rgb(255, 255, 255);
     line-height: 1.6;
 }
 

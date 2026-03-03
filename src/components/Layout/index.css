@@ -1,6 +1,6 @@
 .page {
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     position: relative;
     padding-left: 96px;
     /* space for fixed left sidenav on desktop */
