@@ -13,6 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--site-gradient);
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -26,6 +27,7 @@ body,
 html {
   background: var(--site-gradient);
   background-repeat: no-repeat;
+  background-attachment: fixed;  
   background-size: cover;
   overscroll-behavior: none;
 }
@@ -41,6 +43,7 @@ body {
   overflow-x: hidden;
   background: var(--site-gradient);
   background-repeat: no-repeat;
+  background-attachment: fixed; 
   background-size: cover;
 }
 
