@@ -8,7 +8,7 @@ import "./IconRotator.css";
    - speed: seconds for one full cycle
    - visible: how many icons visible in column viewport
 */
-const IconRotator = ({ techs = [], size = 96, speed = 8, visible = 4 }) => {
+const IconRotator = ({ techs = [], size = 96, speed = 8, visible = 10 }) => {
     const icons = useMemo(() => techs.map(t => t.icon), [techs]);
 
     if (!icons.length) return null;

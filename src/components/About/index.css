@@ -63,6 +63,15 @@
     pointer-events: auto;
 }
 
+.about-content-split {
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: minmax(360px, 1fr) 360px;
+    gap: 30px;
+    align-items: start;
+    width: min(930px, 80vw);
+}
+
 .btn-group {
     display: inline-flex;
     gap: 30px;
@@ -136,6 +145,113 @@
     /* spacing between items */
 }
 
+.icon-pillar {
+    pointer-events: none;
+    position: relative;
+    width: 360px;
+    height: 860px;
+    perspective: 900px;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.pillar-axis {
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    width: 0px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, rgba(173, 232, 244, 0.15), rgba(173, 232, 244, 0.5), rgba(173, 232, 244, 0.15));
+    box-shadow: 0 0 20px rgba(173, 232, 244, 0.2);
+}
+
+.pillar-column {
+    position: absolute;
+    bottom: 35%;
+    left: 100%;
+    width: 110px;
+    height: 120%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(173, 232, 244, 0.2);
+    background: rgba(173, 232, 244, 0.06);
+    transition: transform 640ms cubic-bezier(.2, .9, .2, 1), opacity 500ms ease, filter 500ms ease, box-shadow 500ms ease;
+    transform-style: preserve-3d;
+}
+
+.pillar-front {
+    transform: translateX(0) rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: saturate(1.05);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+    z-index: 3;
+}
+
+.pillar-left {
+    transform: translateX(-92px) rotateY(28deg) scale(0.86);
+    opacity: 0.76;
+    filter: brightness(0.93);
+    z-index: 2;
+}
+
+.pillar-right {
+    transform: translateX(92px) rotateY(-28deg) scale(0.86);
+    opacity: 0.76;
+    filter: brightness(0.93);
+    z-index: 2;
+}
+
+.pillar-track {
+    display: flex;
+    flex-direction: column;
+    animation: pillarSpin 20s linear infinite;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+}
+
+.pillar-segment {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 16px 0;
+}
+
+@keyframes pillarSpin {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, -50%, 0);
+    }
+}
+
+@keyframes pillarSlideAcross {
+    from {
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.pillar-icon-cell {
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.pillar-icon-cell svg {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
+}
+
 /* small/medium screens */
 @media (max-width: 800px) {
     .hero-about {
@@ -153,6 +269,80 @@
 
     .about-description {
         max-width: 100vw;
+    }
+
+    .about-content-split {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .icon-pillar {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap:10px;
+        justify-content: stretch;
+        align-items: stretch;
+        perspective: none;
+    }
+
+    .pillar-axis {
+        display: none;
+    }
+
+    .pillar-column {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        height: 78px;
+        margin-left: 0;
+        border-radius: 10px;
+    }
+
+    .pillar-front {
+        transform: none;
+        opacity: 1;
+        filter: none;
+        box-shadow: none;
+    }
+
+    .pillar-left {
+        transform: none;
+        opacity: 1;
+        filter: none;
+    }
+
+    .pillar-right {
+        transform: none;
+        opacity: 1;
+        filter: none;
+    }
+
+    .pillar-track {
+        flex-direction: row;
+        width: max-content;
+        animation-name: pillarSlideAcross;
+        animation-duration: 16s;
+    }
+
+    .pillar-segment {
+        flex-direction: row;
+        gap: 16px;
+        padding: 0 10px;
+    }
+
+    .pillar-icon-cell {
+        width: 58px;
+        height: 78px;
+        flex: 0 0 auto;
+    }
+
+    .pillar-icon-cell svg {
+        width: 38px;
+        height: 38px;
     }
 }
 
