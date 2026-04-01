@@ -4,13 +4,10 @@
 
 .hero-projects {
     position: fixed;
-    top: 10%;
-    left: 10vw;
-    width: 80vw;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 60px;
+    top: 8%;
+    left: 8vw;
+    width: 86vw;
+    display: block;
     z-index: 20;
     opacity: 0;
     transition: opacity 500ms ease;
@@ -18,6 +15,11 @@
 
 .hero-projects.show {
     opacity: 1;
+}
+
+.projects-page {
+    width: 100%;
+    min-height: 100%;
 }
 
 /* ── Left column ───────────────────── */
@@ -28,11 +30,21 @@
     flex-direction: column;
 }
 
+.projects-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .projects-title {
     user-select: none;
     margin: 0;
+    padding: 0;
+    text-indent: 0;
+    margin-right: 4vw;
     white-space: nowrap;
-    font-size: 56px;
+    font-size: 52px;
     color: #ade8f4;
     font-weight: 650;
 }
@@ -48,41 +60,50 @@
 }
 
 .proj-tagline {
-    margin: 10px 0 28px;
+    margin: 10px 0 24px;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.695);
+    color: rgba(255, 255, 255, 0.74);
     letter-spacing: 0.03em;
 }
 
 /* ── Project cards ─────────────────── */
 .projects-cards-row {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 14px;
 }
 
 .project-card {
-    background: rgba(173, 232, 244, 0.13);
-    border: 2px solid rgba(173, 232, 244, 0.35);
+    background: rgba(173, 232, 244, 0.12);
+    border: 1px solid rgba(173, 232, 244, 0.35);
     border-radius: 12px;
-    padding: 16px 20px;
+    padding: 14px 16px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     text-decoration: none;
     cursor: pointer;
-    transition: background 170ms ease, border-color 170ms ease, transform 150ms ease;
+    min-height: 174px;
+    transition: background 170ms ease, border-color 170ms ease, transform 150ms ease, box-shadow 150ms ease;
 }
 
 .project-card:hover {
-    background: rgba(173, 232, 244, 0.21);
+    background: rgba(173, 232, 244, 0.2);
     border-color: rgba(173, 232, 244, 0.6);
-    transform: translateX(5px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.project-card-index {
+    color: rgba(173, 232, 244, 0.88);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
 }
 
 .project-card-title {
     margin: 0;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: #ade8f4;
     line-height: 1.3;
@@ -90,14 +111,27 @@
 
 .project-card-desc {
     margin: 0;
-    font-size: 12.5px;
+    font-size: 13px;
     color: rgb(255, 255, 255);
-    line-height: 1.6;
+    line-height: 1.5;
+}
+
+.project-card-repo {
+    margin-top: auto;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+}
+
+.projects-actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 /* ── GitHub button ─────────────────── */
 .proj-github-btn {
-    margin-top: 24px;
     display: inline-flex;
     align-items: center;
     gap: 9px;
@@ -119,123 +153,43 @@
     transform: translateY(-2px);
 }
 
-/* ── Right column — resume ─────────── */
-.proj-right {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.proj-resume-label {
-    margin: 0;
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
-}
-
-/* resume + overlay container */
-.projects-resume-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-/* resume image */
-.projects-resume-frame {
-    width: 360px;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    display: block;
-}
-
-/* hover overlay */
-.projects-resume-overlay {
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    background: rgba(0, 0, 0, 0.58);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 200ms ease;
-}
-
-.projects-resume-wrapper:hover .projects-resume-overlay {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* download button */
-.projects-download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 24px;
-    font-size: 14px;
-    font-weight: 600;
-    background: #3172ff;
-    color: #fff;
-    cursor: pointer;
-    transition: background 160ms ease, transform 140ms ease;
-}
-
-.projects-download-btn:hover {
-    background: #4a85ff;
-    transform: scale(1.04);
-}
-
-/* mobile download button — hidden on desktop */
-.proj-mobile-download-btn {
-    display: none;
-}
-
 /* ── Responsive ────────────────────── */
 @media (max-width: 900px) {
     .hero-projects {
-        flex-direction: column;
-        gap: 40px;
-        width: 80vw;
+        position: static;
+        top: auto;
+        left: auto;
+        width: auto;
+        margin: 0;
+        padding: 0 6vw 28px;
+        gap: 30px;
     }
 
     .projects-title {
+        white-space: normal;
         font-size: 42px;
+        margin-right: 25vw;
     }
 
-    /* hide the entire resume preview on mobile */
-    .proj-right {
-        display: none;
+    .projects-header-row {
+        flex-direction: column;
+        align-items: flex-start;
     }
+
+    .projects-cards-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .project-card {
+        min-height: 0;
+    }
+
+    .projects-actions {
+        padding-bottom: 10px;
+    }
+
     .proj-github-btn {
-        max-width: 50%;
-    }
-    /* show the standalone download button instead */
-    .proj-mobile-download-btn {
-        margin-top: 16px;
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        padding: 11px 22px;
-        border-radius: 10px;
-        border: none;
-        background: #3172ff;
-        color: #fff;
-        font-size: 14px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background 160ms ease, transform 140ms ease;
-        max-width: 52%;
-    }
-
-    .proj-mobile-download-btn:hover {
-        background: #4a85ff;
-        transform: translateY(-2px);
+        max-width: unset;
     }
 }

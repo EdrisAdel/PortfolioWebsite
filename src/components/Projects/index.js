@@ -1,34 +1,64 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const wrapLetters = (text) =>
-    text.split("").map((ch, i) => (
-        <span key={i} className="letter">
+    text.replace(/^\s+/, "").split("").map((ch, i) => (
+        <span key={i} className="letter" style={{ '--i': i }}>
             {ch === " " ? "\u00A0" : ch}
         </span>
     ));
 
 const projects = [
     {
+        title: "Credit Card Fraud Detection",
+        description:
+            "Machine learning pipeline for identifying fraudulent transactions with a focus on reducing false positives.",
+        href: "https://github.com/EdrisAdel/CreditCardFraudDetection",
+        repo: "CreditCardFraudDetection",
+    },
+    {
+        title: "Bundesliga Match Predictor",
+        description:
+            "Predictive model for Bundesliga outcomes and table movement using historical statistics and form trends.",
+        href: "https://github.com/EdrisAdel/BundesligaMatchPredictor",
+        repo: "BundesligaMatchPredictor",
+    },
+    {
         title: "StockAI",
         description:
             "A machine learning application that analyzes stock market trends and delivers AI-driven insights and price predictions.",
         href: "https://github.com/EdrisAdel/StockAI",
+        repo: "StockAI",
     },
     {
-        title: "Football Match Analytics System",
+        title: "Football Vision Analysis",
         description:
             "A data-driven system that processes and visualizes football match statistics for in-depth performance analysis.",
         href: "https://github.com/EdrisAdel/FootballVisionAnalysis",
+        repo: "FootballVisionAnalysis",
     },
     {
-        title: "Bundesliga Table Predictor",
+        title: "Portfolio Website",
         description:
-            "A predictive model that forecasts Bundesliga standings using historical match data and statistical modelling.",
-        href: "https://github.com/EdrisAdel/BundesligaMatchPredictor",
+            "Personal portfolio built to showcase projects, technical stack, and contact workflow in one focused interface.",
+        href: "https://github.com/EdrisAdel/PortfolioWebsite",
+        repo: "PortfolioWebsite",
+    },
+    {
+        title: "Java OOP Maze Game",
+        description:
+            "Object-oriented Java game with maze traversal mechanics, entity logic, and reusable class architecture.",
+        href: "https://github.com/EdrisAdel/JavaOOPMazeGame",
+        repo: "JavaOOPMazeGame",
+    },
+    {
+        title: "Client Server Network Test App",
+        description:
+            "Networking test application for validating client-server communication, request handling, and stability.",
+        href: "https://github.com/EdrisAdel/ClientServerNetworkTestApplication",
+        repo: "ClientServerNetworkTestApplication",
     },
 ];
 
@@ -48,21 +78,18 @@ const Projects = () => {
         return () => clearTimeout(tReveal);
     }, []);
 
-    const handleDownload = () => {
-        const link = document.getElementById("hidden-resume-download");
-        if (link) {
-            link.click();
-        }
-    };
-
     return (
         <div className="projects-page">
             <div className={`hero-projects ${showMain ? "show" : ""}`}>
 
                 {/* ── left column ── */}
                 <div className="proj-left">
-                    <h1 className="projects-title">{wrapLetters("Portfolio")}</h1>
-                    <p className="proj-tagline">Here's what I've been working on.</p>
+                    <div className="projects-header-row">
+                        <div>
+                            <h1 className="projects-title">{wrapLetters("Projects")}</h1>
+                            <p className="proj-tagline">A collection of what I have built so far.</p>
+                        </div>
+                    </div>
 
                     <div className="projects-cards-row">
                         {projects.map((project, i) => (
@@ -73,66 +100,38 @@ const Projects = () => {
                                 target="_blank"
                                 rel="noreferrer"
                             >
+                                <span className="project-card-index">{String(i + 1).padStart(2, "0")}</span>
                                 <h3 className="project-card-title">{project.title}</h3>
                                 <p className="project-card-desc">{project.description}</p>
+                                <span className="project-card-repo">
+                                    {`github.com/EdrisAdel/${project.repo}`}
+                                </span>
                             </a>
                         ))}
                     </div>
 
-                    <a
-                        className="proj-github-btn"
-                        href="https://github.com/EdrisAdel"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <FontAwesomeIcon icon={faGithub} />
-                        View GitHub
-                    </a>
+                    <div className="projects-actions">
+                        <a
+                            className="proj-github-btn"
+                            href="https://github.com/EdrisAdel"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <FontAwesomeIcon icon={faGithub} />
+                            View GitHub
+                        </a>
 
-                    {/* mobile-only download button */}
-                    <button
-                        className="proj-mobile-download-btn"
-                        onClick={handleDownload}
-                        aria-label="Download Resume (PDF)"
-                    >
-                        <FontAwesomeIcon icon={faDownload} />
-                        Download Resume
-                    </button>
-                </div>
-
-                {/* ── right column — resume ── */}
-                <div className="proj-right">
-                    <span className="proj-resume-label">Resume</span>
-                    <div className="projects-resume-wrapper">
-                        <img
-                            src="/EdrisCS_Resume.webp"
-                            alt="Edris Adel Resume"
-                            className="projects-resume-frame"
-                        />
-                        <div className="projects-resume-overlay">
-                            <button
-                                className="projects-download-btn"
-                                onClick={handleDownload}
-                                aria-label="Download Resume (PDF)"
-                            >
-                                <FontAwesomeIcon icon={faDownload} />
-                                <span>Download Resume</span>
-                            </button>
-                        </div>
+                        <a
+                            className="proj-github-btn"
+                            href="/EdrisCS_Resume.pdf"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            View Resume
+                        </a>
                     </div>
                 </div>
-
             </div>
-
-            {/* hidden download anchor */}
-            <a
-                href="/EdrisCS_Resume.pdf"
-                download
-                id="hidden-resume-download"
-                style={{ display: "none" }}
-            >
-                Download resume
-            </a>
         </div>
     );
 };

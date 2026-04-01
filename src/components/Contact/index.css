@@ -113,15 +113,15 @@
     border-radius: 999px;
     padding: 10px 18px;
     font-weight: 600;
-    background: linear-gradient(90deg, #3172ff, #6a9bff);
+    background: #3172ff;
     color: #fff;
     cursor: pointer;
-    transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+    transition: transform 140ms ease, box-shadow 100ms ease, opacity 140ms ease;
 }
 
 .contact-submit:hover:not(:disabled) {
     transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .contact-submit:disabled {
